@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Demo - Not using React</title>
+        <script>
+            function submit() {
+                console.log("submit button is clicked.")
+                var studentNameElement = document.getElementById("stuName");
+                var studentName = studentNameElement.value;
+                console.log("Student name", studentName)
+                var resultElement = document.getElementById("result");
+                resultElement.innerHTML = "<b>Hello, " + studentName + "</b>";
+            }
+        </script>
+    </head>
+    <body>
+        <input id="stuName" class="input" value="">
+        <button onclick="submit()">Submit</button>
+        <p>
+        <div id="result"></div>
+    </body>
+</html>

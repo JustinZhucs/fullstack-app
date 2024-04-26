@@ -1,0 +1,12 @@
+.App {
+  text-align: left;
+}
+
+.Subject {
+  font-size: 32px;
+}
+
+.Result {
+  font-size: 26px;
+  color: blue;
+}

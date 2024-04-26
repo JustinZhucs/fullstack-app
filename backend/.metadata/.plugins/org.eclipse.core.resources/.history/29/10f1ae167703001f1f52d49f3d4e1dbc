@@ -1,0 +1,5 @@
+package com.huadian.pbmgmt.services;
+
+public class ProductServiceImpl {
+
+}

@@ -1,0 +1,23 @@
+package com.huadian.pbmgmt.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.huadian.pbmgmt.dao.DaoException;
+import com.huadian.pbmgmt.dao.ProductDao;
+import com.huadian.pbmgmt.entities.Product;
+
+public class ProductServiceImpl implements ProductService {
+	
+	@Autowired
+	private ProductDao productDao;
+
+	@Override
+	public Product submitProduct(Product product) throws DaoException {
+		
+		productDao.createProductTransaction(product);
+		
+		Product p = new Product(100, "ABC", 300);
+		return p;
+	}
+
+}

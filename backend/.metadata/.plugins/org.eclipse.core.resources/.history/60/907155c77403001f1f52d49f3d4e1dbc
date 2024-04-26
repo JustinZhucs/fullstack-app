@@ -1,0 +1,44 @@
+package com.huadian.pbmgmt.controller;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("products")
+public class ProductController {
+	
+	
+	@GetMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getAllProducts() {
+		System.out.println("Controller is called.");
+		return "Hello, this is all I have for you.";
+	}
+	
+	@PostMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String submitProduct(Product product) {
+		
+	}
+	
+//	http://td.com/customers  (GET, POST)
+//	http://td.com/customers/101 (GET, PUT, DELETE)
+//	http://td.com/customers/101/accounts
+//	http://td.com/customers/101/accounts/2310021
+//		
+//		
+//		http://td.com/customers/101/accounts/2310021.html
+//		http://td.com/customers/101/accounts/2310021.pdf
+//		http://td.com/customers/101/accounts/2310021.txt
+//			
+//	GET     retrieve (R)
+//	POST	create (C)
+//	PUT		update (U)
+//	DELETE	delete/remove (D)
+//	
+//	
+//	CRUD
+		
+
+}

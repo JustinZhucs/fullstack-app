@@ -1,0 +1,9 @@
+package com.huadian.pbmgmt.dao;
+
+import com.huadian.pbmgmt.entities.Product;
+
+public interface ProductDao {
+
+	Product createProductTransaction(Product product);
+
+}

@@ -1,0 +1,19 @@
+package com.huadian.pbmgmt.controller;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("products")
+public class ProductController {
+	
+	
+	@GetMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getAllProducts() {
+		System.out.println("Controller is called.");
+		return "Hello, this is all I have for you.";
+	}
+
+}

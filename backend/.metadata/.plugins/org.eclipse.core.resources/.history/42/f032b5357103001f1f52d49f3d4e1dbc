@@ -1,0 +1,5 @@
+package com.huadian.pbmgmt.controller;
+
+public class ProductController {
+
+}

@@ -12,8 +12,6 @@ function add(a, b) {
 }
 
 function App() {
-  // let studentName = "Justin";
-  // let result = studentName;
 
   const [productName, setProductName] = useState("Apple")
   const [quantity, setQuantity] = useState(1)

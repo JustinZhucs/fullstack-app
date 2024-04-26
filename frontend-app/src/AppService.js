@@ -2,6 +2,7 @@ const API_SERVICE_HOST = 'http://localhost:8080';
 
 const apiService = {
 
+    // submit order to the backend service
     submitOrder: async (productName, quantity) => {
 
         return fetch(`${API_SERVICE_HOST}/products/`, {

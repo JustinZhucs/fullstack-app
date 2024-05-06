@@ -1,21 +1,18 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css';
-import { useState } from 'react';
+import Home from './HomePage'
+import Login from './login'
+import { useEffect, useState } from 'react';
 import apiService from './AppService';
-
-// function submit(e) {
-//   console.log("submitted", e)
-// }
-
-function add(a, b) {
-  return a + b;
-}
 
 function App() {
 
   const [productName, setProductName] = useState("Apple")
   const [quantity, setQuantity] = useState(1)
   const [result, setResult] = useState("");
+
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [email, setEmail] = useState('')
 
 
 
@@ -45,6 +42,14 @@ function App() {
         Product Name: <input value={productName} onChange={changeProductName}/><br/>
         Quantity: <input value={quantity} onChange={e => setQuantity(e.target.value)}/><br/>
         <button onClick={submit}>Submit</button>
+      </div>
+      <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+        </Routes>
+      </BrowserRouter>
       </div>
       <div>
         <div className='Result'>{result}</div>

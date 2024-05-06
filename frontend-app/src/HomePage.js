@@ -1,20 +1,30 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import LogoImage from './images/huadian logo.png';
 
 const Home = (props) => {
   const { loggedIn, email } = props
   const navigate = useNavigate()
 
   const onButtonClick = () => {
-    // You'll update this function later
-  }
+    if (loggedIn) {
+        localStorage.removeItem("user")
+        props.setLoggedIn(false)
+    } else {
+        navigate("/login")
+    }
+}
+
 
   return (
     <div className="mainContainer">
     <div className={'titleContainer'}>
-      <div>Welcome!</div>
+      <div className="logo">
+        <img src={LogoImage} alt="Logo" height="100"/>
+      </div>
+      <div>Welcome To Huadian Tender Billing System</div>
     </div>
-    <div>This is the home page.</div>
+    <div className='subtitle'>Power Smart</div>
     <div className={'buttonContainer'}>
       <input
         className={'inputButton'}

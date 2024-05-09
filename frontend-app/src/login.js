@@ -1,20 +1,16 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
-const Login = (props) => {
+const DemoLogin = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
 
-  const navigate = useNavigate()
 
   const onButtonClick = () => {
-    // Set initial error values to empty
     setEmailError('')
     setPasswordError('')
   
-    // Check if the user has entered both fields correctly
     if ('' === email) {
       setEmailError('Please enter your email')
       return
@@ -34,8 +30,6 @@ const Login = (props) => {
       setPasswordError('The password must be 8 characters or longer')
       return
     }
-  
-    // Authentication calls will be made here...
   }
 
   return (
@@ -71,4 +65,4 @@ const Login = (props) => {
   )
 }
 
-export default Login
+export default DemoLogin

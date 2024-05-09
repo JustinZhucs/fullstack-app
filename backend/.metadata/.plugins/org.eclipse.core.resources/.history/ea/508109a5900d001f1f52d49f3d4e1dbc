@@ -1,0 +1,5 @@
+package com.huadian.pbmgmt.entities;
+
+public class User {
+
+}

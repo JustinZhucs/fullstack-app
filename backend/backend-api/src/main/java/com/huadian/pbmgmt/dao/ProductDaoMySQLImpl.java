@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Repository;
 
 import com.huadian.pbmgmt.entities.Product;
+import com.huadian.pbmgmt.entities.User;
 
 @Repository
 public class ProductDaoMySQLImpl implements ProductDao {
@@ -54,6 +55,22 @@ public class ProductDaoMySQLImpl implements ProductDao {
 			throw new DaoException(e);
 		}
 		
+	}
+
+	@Override
+	public User getUser(String email, String password) throws DaoException {
+		try (PreparedStatement pStmt = conn.prepareStatement("SELECT FIRST_NAME, LAST_NAME FROM USERS WHERE UPPER(EMAIL) = ? AND PASSWORD = ?") ){
+			pStmt.setString(1, email.toUpperCase());
+			pStmt.setString(2, password);
+			ResultSet rs = pStmt.executeQuery();
+			if (rs.next()) {
+				return new User(email, rs.getString("FIRST_NAME"), rs.getString("LAST_NAME"));
+			}
+			return null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DaoException(e);
+		}
 	}
 
 }

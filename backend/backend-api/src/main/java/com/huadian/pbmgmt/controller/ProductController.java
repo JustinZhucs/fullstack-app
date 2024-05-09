@@ -10,39 +10,66 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.huadian.pbmgmt.dao.DaoException;
+import com.huadian.pbmgmt.entities.LoginRequest;
+import com.huadian.pbmgmt.entities.LoginResult;
 import com.huadian.pbmgmt.entities.Product;
 import com.huadian.pbmgmt.services.ProductService;
 
-@CrossOrigin("*")
-@RestController
-@RequestMapping("products")
+//@CrossOrigin("*")
+//@RestController
+//@RequestMapping("products")
 public class ProductController {
 	
-	@Autowired
-	private ProductService productService;
-	
-	
-	@GetMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String getAllProducts() {
-		System.out.println("Controller is called.");
-		return "Hello, this is all I have for you.";
-	}
-	
-	@PostMapping(value="/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Product submitProduct(@RequestBody Product product) {
-		
-		System.out.println("submitProduct: product = " + product);
-		try {
-			return productService.submitProduct(product);
-		} catch (DaoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
-		
-//		return "Product submitted - " + product;
-		
-	}
+//	@Autowired
+//	private ProductService productService;
+//	
+//	
+//	@GetMapping(value="/all", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public String getAllProducts() {
+//		System.out.println("Controller is called.");
+//		return "Hello, this is all I have for you.";
+//	}
+//	
+//	@PostMapping(value="/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//	public Product submitProduct(@RequestBody Product product) {
+//		
+//		System.out.println("submitProduct: product = " + product);
+//		try {
+//			return productService.submitProduct(product);
+//		} catch (DaoException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return null;
+//		}
+//		
+////		return "Product submitted - " + product;
+//		
+//	}
+//	
+//	
+//	@PostMapping(value="/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//	public LoginResult login(@RequestBody LoginRequest loginRequest) {
+//		
+//		System.out.println("login: request = " + loginRequest);
+//		LoginResult result = new LoginResult();
+//		if ("jz@gmail.com".equals(loginRequest.getEmail()) && "12345678".equals(loginRequest.getPassword())) {
+//			result.setStatus(true);
+//			result.setFirstName("Justin");
+//			result.setLastName("Zhu");
+//		} else {
+//			result.setStatus(false);
+//		}
+////		try {
+////			return productService.submitProduct(product);
+////		} catch (DaoException e) {
+////			// TODO Auto-generated catch block
+////			e.printStackTrace();
+////			return null;
+////		}
+//		
+//		return result;
+//		
+//	}
 	
 //	http://td.com/customers  (GET, POST)
 //	http://td.com/customers/101 (GET, PUT, DELETE)
